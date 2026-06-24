@@ -8,7 +8,5 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 import django
 django.setup()
 
-from mangum import Mangum
-from backend.asgi import application as asgi_application
-
-handler = Mangum(asgi_application)
+from django.core.wsgi import get_wsgi_application
+app = get_wsgi_application()

@@ -1,4 +1,4 @@
-const API_URL = (process.env.NEXT_PUBLIC_API_URL || '/_/backend/api').replace(/\/$/, '');
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api').replace(/\/$/, '');
 
 export async function fetchAPI(endpoint: string) {
   const res = await fetch(`${API_URL}/${endpoint}/`);
