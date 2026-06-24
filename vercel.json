@@ -1,13 +1,18 @@
 {
-    "experimentalServices": {
-        "frontend": {
-            "root": "frontend",
-            "routePrefix": "/",
-            "framework": "nextjs"
-        },
-        "backend": {
-            "root": "backend",
-            "routePrefix": "/_/backend"
-        }
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/next"
+    },
+    {
+      "src": "backend/api/index.py",
+      "use": "@vercel/python"
     }
+  ],
+  "routes": [
+    { "src": "/_/backend/api/(.*)", "dest": "/api/index.py" },
+    { "src": "/_/backend/(.*)", "dest": "/api/index.py" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/frontend/$1" }
+  ]
 }
