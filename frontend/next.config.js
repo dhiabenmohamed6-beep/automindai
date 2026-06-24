@@ -1,0 +1,12 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  swcMinify: false,
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'placehold.co' },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+    ],
+  },
+}
+
+module.exports = nextConfig
